@@ -45,7 +45,9 @@ Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usu
         easydrive.imprimirClientes();
 // imprime el catálogo de vehículos de easydrive
         easydrive.imprimirVehiculos();
-
+        // ordenamos vehiculos y clientes
+        easydrive.ordenarClientes();
+        easydrive.ordenarVehiculos();
         // creamos alquiler  pidiendo datos
         Scanner tc = new Scanner(System.in);
         System.out.println("Vamos a crear un alquiler nuevo");
@@ -63,9 +65,6 @@ Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usu
         easydrive.imprimirAlquiler();
         tc.nextLine();
         // ordenamos vehiculos y clientes como se nos pide
-        easydrive.ordenarClientes();
-        easydrive.ordenarVehiculos();
-
         System.out.println("¿Que cliente quieres buscar segun el nif?");
         String z = tc.nextLine();
 
