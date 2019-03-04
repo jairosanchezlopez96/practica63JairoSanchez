@@ -57,6 +57,9 @@ Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usu
         System.out.println("Dime nif");
         String nif = tc.nextLine();
 
+
+        tc.nextLine();
+
         System.out.println("Dime los dias de alquiler");
         int dias = tc.nextInt();
 
@@ -65,6 +68,7 @@ Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usu
         easydrive.imprimirAlquiler();
         tc.nextLine();
         // ordenamos vehiculos y clientes como se nos pide
+
         System.out.println("¿Que cliente quieres buscar segun el nif?");
         String z = tc.nextLine();
 
