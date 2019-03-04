@@ -154,7 +154,7 @@ cliente.*/
             System.out.println(this.clientes.get(i));
         }
     }
-   
+
     /*imprimirVehiculos(). Muestra el catálogo de vehículos de la empresa,
 recorriendo el array vehiculos y llamando al método getAtributos() de cada
 uno .*/
@@ -233,14 +233,15 @@ nif, int dias).*/
             this.totalAlquileres++;
         }
     }
+
     // como solo hay un alquiler recorremos el array list y yasta si no cogeriamos la primera posicion del arraylist
-    public void imprimirAlquiler(){
+    public void imprimirAlquiler() {
         System.out.println("Datos alquiler");
-        for(int i = 0 ; i < this.getTotalAlquileres();i++){
-            System.out.println("Nif cliente "+ this.alquileres.get(i).getCliente().getNif());
-             System.out.println("Matricula del coche "+ this.alquileres.get(i).getVehiculo().getMatricula());
-              System.out.println("Dias del alquiler " +this.alquileres.get(i).getTotalDiasAlquiler());
-    }
+        for (int i = 0; i < this.getTotalAlquileres(); i++) {
+            System.out.println("Nif cliente " + this.alquileres.get(i).getCliente().getNif());
+            System.out.println("Matricula del coche " + this.alquileres.get(i).getVehiculo().getMatricula());
+            System.out.println("Dias del alquiler " + this.alquileres.get(i).getTotalDiasAlquiler());
+        }
     }
 
     public void rellenarClientes() {
