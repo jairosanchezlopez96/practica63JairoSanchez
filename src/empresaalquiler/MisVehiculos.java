@@ -1,10 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *En la clase que contenga el método main() se debe:
+Crear una empresa de alquiler con los datos que tú quieras.
+Se llenarán los arraylist de clientes y vehículos de forma aleatoria usando los métodos pertinentes. 
+Una vez cargados los 25 clientes y 25 vehículos aleatorios, se mostrarán usando la consola.
+El programa solicitará por teclado el nif de un cliente, la matrícula de un vehículo y el número de días que se quiere alquilar.
+El sistema registrará, usando el método apropiado, el alquiler anterior.
+Se debe mostrar por consola el alquiler registrado.
+Posteriormente, se ordenarán los clientes y los vehículos usando los métodos apropiados. 
+Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usuario, usando búsqueda binaria. Todos los resultados se deben mostrar por consola, comprobando que el comportamiento de los métodos es el correcto.
+
  */
-/*Penalización en la nota de dos puntos por no tabular el código*/
+ /*Penalización en la nota de dos puntos por no tabular el código*/
 package empresaalquiler;
+
+import java.util.Scanner;
 
 /**
  *
@@ -13,53 +22,65 @@ package empresaalquiler;
 public class MisVehiculos {
 
     public static void main(String[] args) {
+        /*
+ *En la clase que contenga el método main() se debe:
+Crear una empresa de alquiler con los datos que tú quieras.
+Se llenarán los arraylist de clientes y vehículos de forma aleatoria usando los métodos pertinentes. 
+Una vez cargados los 25 clientes y 25 vehículos aleatorios, se mostrarán usando la consola.
+El programa solicitará por teclado el nif de un cliente, la matrícula de un vehículo y el número de días que se quiere alquilar.
+El sistema registrará, usando el método apropiado, el alquiler anterior.
+Se debe mostrar por consola el alquiler registrado.
+Posteriormente, se ordenarán los clientes y los vehículos usando los métodos apropiados. 
+Se volverá a buscar otro cliente y otro vehículo, solicitando los datos al usuario, usando búsqueda binaria. Todos los resultados se deben mostrar por consola, comprobando que el comportamiento de los métodos es el correcto.
+
+ */
         // la instancia easydrive de la clase EmpresaAlquilerVehiculos
         EmpresaAlquilerVehiculos easydrive = new EmpresaAlquilerVehiculos("A-28-187189", "easy drive",
                 "www.easydrive.com");
-        // registro de los clientes de la empresa
-easydrive.registrarCliente(new Cliente("X5618927C",
-
-"Juan", "González López"));
-
-easydrive.registrarCliente(new Cliente("Z7568991Y",
-
-"Luis", "Fernández Gómez"));
-// registro de los vehículos de la empresa
-easydrive.registrarVehiculo(new Vehiculo("4060 TUR", "Skoda",
-"Fabia", "Blanco", 90.0, false));
-
-easydrive.registrarVehiculo(new Vehiculo("4070 DEP", "Ford", "Mustang",
-
-"Rojo", 150.0, true));
-
-easydrive.registrarVehiculo(new Vehiculo("4080 TUR", "VW", "GTI","Azul", 110.0, false));
-
-easydrive.registrarVehiculo(new Vehiculo("4090 TUR", "SEAT", "Ibiza",
-
-"Blanco", 90.0, false));
-
-easydrive.registrarVehiculo(new Vehiculo("4100 FUR", "Fiat", "Ducato",
-
-"Azul", 80.0, true));
-// imprime la relación de clientes de easydrive
-easydrive.imprimirClientes();
-// imprime el catálogo de vehículos de easydrive
-easydrive.imprimirVehiculos();
-  Vehiculo v = Vehiculo.vehiculoAleatorio();
-        System.out.println(v);
-   Cliente c= Cliente.clienteAleatorio();
-        System.out.println(c);
+        // rellenamos clientes
     easydrive.rellenarClientes();
-    easydrive.imprimirClientes();
+    // rellenamos vehiculos e imprimimos
     easydrive.rellenarVehiculos();
-    easydrive.imprimirVehiculos();
-   easydrive.ordenarClientes();
-   easydrive.ordenarVehiculos();
-   easydrive.imprimirClientes();
-   easydrive.imprimirVehiculos();
-   easydrive.buscarCliente("00379468Z");
-   easydrive.buscarVehiculos("2213XXXX");
+// imprime la relación de clientes de easydrive
+        easydrive.imprimirClientes();
+// imprime el catálogo de vehículos de easydrive
+        easydrive.imprimirVehiculos();
+        
+     // creamos alquiler  pidiendo datos
+      Scanner tc = new Scanner(System.in);
+        System.out.println("Vamos a crear un alquiler nuevo");
+        System.out.println("Dime matricula");
+        String matricula = tc.nextLine();
+        tc.nextLine();
+        System.out.println("Dime nif");
+        String nif = tc.nextLine();
+        tc.nextLine();
+        System.out.println("Dime los dias de alquiler");
+        int dias = tc.nextInt();
+        tc.nextLine();
+        easydrive.alquilarVehiculo(matricula, nif, dias);
+        // imprimimos
+        easydrive.imprimirAlquiler();
+       
+        
     
+
+     
+        // ordenamos vehiculos y clientes como se nos pide
+        easydrive.ordenarClientes();
+        easydrive.ordenarVehiculos();
+
+       
+       
+        System.out.println("¿Que cliente quieres buscar segun el nif?");
+        String z = tc.nextLine();
+        tc.nextLine();
+        easydrive.buscarCliente(z);
+        System.out.println("¿Que coche quieres buscar segun la matricula?");
+        String b = tc.nextLine();
+        tc.nextLine();
+        easydrive.buscarVehiculos(b);
+
     }
 
 }
